@@ -9,7 +9,7 @@ public class RetrofitInstance {
 
     private static Retrofit retrofit = null;
 
-    private final static String BASE_URL = "http://172.17.0.1:8080/api/";
+    private final static String BASE_URL = "http://192.168.1.184:8080/api/";
 
     public static AlbumApiService getService() {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
