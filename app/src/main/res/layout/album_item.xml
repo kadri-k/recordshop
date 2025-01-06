@@ -86,12 +86,27 @@
                 android:hint="Price"
                 android:textColor="@color/black"
                 android:textSize="15sp"
-                android:textStyle="normal"
+                android:textStyle="bold"
                 app:formattedPrice="@{album.price}"
                 app:layout_constraintBaseline_toBaselineOf="@id/title"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                  />
+
+            <TextView
+                android:id="@+id/stock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="232dp"
+                android:layout_marginTop="24dp"
+                android:hint="Stock"
+                android:text="@{album.stock}"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="normal"
+                app:layout_constraintBaseline_toBaselineOf="@id/genre"
+                app:layout_constraintStart_toStartOf="@id/genre"
+                app:layout_constraintTop_toBottomOf="@id/price" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
