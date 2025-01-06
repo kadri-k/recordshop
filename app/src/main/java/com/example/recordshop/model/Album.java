@@ -1,10 +1,12 @@
 package com.example.recordshop.model;
 
+import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 
+import com.example.recordshop.BR;
 import com.google.gson.annotations.SerializedName;
 
-public class Album {
+public class Album extends BaseObservable {
     private long id;
     private String title;
     private String artist;
@@ -29,6 +31,7 @@ public class Album {
     }
     public void setTitle(String title) {
         this.title = title;
+        notifyPropertyChanged(BR.title);
     }
 
     @Bindable
@@ -38,6 +41,7 @@ public class Album {
 
     public void setId(long id) {
         this.id = id;
+        notifyPropertyChanged(BR.id);
     }
 
     @Bindable
@@ -47,6 +51,7 @@ public class Album {
 
     public void setArtist(String artist) {
         this.artist = artist;
+        notifyPropertyChanged(BR.artist);
     }
 
     @Bindable
@@ -56,6 +61,7 @@ public class Album {
 
     public void setGenre(String genre) {
         this.genre = genre;
+        notifyPropertyChanged(BR.genre);
     }
 
     @Bindable
@@ -65,6 +71,7 @@ public class Album {
 
     public void setStock(int stock) {
         this.stock = stock;
+        notifyPropertyChanged(BR.stock);
     }
 
     @Bindable
@@ -74,6 +81,7 @@ public class Album {
 
     public void setPrice(Double price) {
         this.price = price;
+        notifyPropertyChanged(BR.price);
     }
 
 }
