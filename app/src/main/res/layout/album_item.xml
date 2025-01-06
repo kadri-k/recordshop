@@ -17,9 +17,9 @@
         app:cardBackgroundColor="@color/beige">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_margin="15dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp">
 
 
             <ImageView
@@ -27,9 +27,9 @@
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:src="@drawable/vinyl"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintVertical_bias="0.5" />
 
 
@@ -37,55 +37,61 @@
                 android:id="@+id/title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:hint="Title"
                 android:text="@{album.title}"
+                android:textColor="@color/black"
                 android:textSize="22sp"
                 android:textStyle="bold"
-                android:textColor="@color/black"
-                app:layout_constraintStart_toEndOf="@id/icon"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginStart="10dp" />
+                app:layout_constraintStart_toEndOf="@id/icon"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
             <TextView
                 android:id="@+id/artist"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:hint="Artist"
                 android:text="@{album.artist}"
-                android:textStyle="italic"
                 android:textColor="@color/black"
-                android:textSize="19sp"
-                android:layout_marginStart="15dp"
-                app:layout_constraintStart_toEndOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/title"
-                app:layout_constraintTop_toTopOf="@+id/title" />
-
+                android:textSize="15sp"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@id/title"
+                app:layout_constraintTop_toBottomOf="@+id/title" />
 
             <TextView
                 android:id="@+id/genre"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="36dp"
+                android:hint="genre"
                 android:text="@{album.genre}"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="italic"
-                android:textColor="@color/black"
-                app:layout_constraintStart_toEndOf="@id/icon"
-                app:layout_constraintTop_toBottomOf="@id/title"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginStart="10dp" />
-
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@id/icon"
+                app:layout_constraintTop_toBottomOf="@id/title" />
 
             <TextView
                 android:id="@+id/price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:formattedPrice="@{album.price}"
+                android:layout_marginEnd="16dp"
+                android:hint="Price"
+                android:textColor="@color/black"
                 android:textSize="15sp"
                 android:textStyle="normal"
-                android:textColor="@color/black"
-                app:layout_constraintTop_toTopOf="@id/genre"
-                app:layout_constraintBottom_toBottomOf="@id/genre"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:formattedPrice="@{album.price}"
+                app:layout_constraintBaseline_toBaselineOf="@id/title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                 />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
