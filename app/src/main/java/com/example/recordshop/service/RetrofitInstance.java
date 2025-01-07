@@ -1,5 +1,7 @@
 package com.example.recordshop.service;
 
+import java.util.concurrent.TimeUnit;
+
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -14,7 +16,13 @@ public class RetrofitInstance {
     public static AlbumApiService getService() {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-        OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
+        //OkHttpClient with increased timeouts
+        OkHttpClient client = new OkHttpClient.Builder()
+                .addInterceptor(interceptor)
+                .connectTimeout(30, TimeUnit.SECONDS) // 30 seconds connect timeout
+                .readTimeout(30, TimeUnit.SECONDS) // 30 seconds read timeout
+                .writeTimeout(30, TimeUnit.SECONDS) // 30 seconds write timeout
+                .build();
 
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()

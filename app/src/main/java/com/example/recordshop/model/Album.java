@@ -7,13 +7,19 @@ import com.example.recordshop.BR;
 import com.google.gson.annotations.SerializedName;
 
 public class Album extends BaseObservable {
-    private long id;
-    private String title;
-    private String artist;
-    private String genre;
-    private int stock;
-    private Double price;
 
+    @SerializedName("id")
+    private long id;
+    @SerializedName("title")
+    private String title;
+    @SerializedName("artist")
+    private String artist;
+    @SerializedName("genre")
+    private String genre;
+    @SerializedName("stock")
+    private int stock;
+    @SerializedName("price")
+    private Double price;
     public Album(long id, Double price, String title, String artist, String genre, int stock) {
         this.id = id;
         this.price = price;
@@ -84,6 +90,14 @@ public class Album extends BaseObservable {
         notifyPropertyChanged(BR.price);
     }
 
+    @Bindable
+    public String getFormattedPrice() {
+        if (price != null) {
+            return String.format("£%.2f", price); // Formats the price
+        } else {
+            return "£0.00"; // Default value if price is null
+        }
+    }
 }
 
 
